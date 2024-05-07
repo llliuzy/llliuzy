@@ -1,0 +1,36 @@
+import pyautogui
+import time
+import pyperclip
+
+def openWechat():
+    pyautogui.hotkey("alt", "ctrl", "w")
+    time.sleep(0.5)
+
+
+def chatWho(name):
+    pyperclip.copy(name)
+    pyautogui.hotkey("ctrl","f")
+    time.sleep(0.5)
+    pyautogui.hotkey("ctrl", "v")
+    time.sleep(0.5)
+    pyautogui.hotkey("enter")
+    time.sleep(0.5)
+    
+def sentMsg(msg):
+    pyperclip.copy(msg)
+    pyautogui.hotkey("ctrl", "v")
+    time.sleep(0.5)
+    pyautogui.hotkey("enter")
+
+def message(name,num):
+    openWechat()
+    for i in name:
+        for j in range(num):
+            chatWho(i)
+            sentMsg("     ")
+            
+                       
+
+name1 = [     ]
+        
+message(name1, 5)
